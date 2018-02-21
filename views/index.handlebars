@@ -1,1 +1,45 @@
-<h1>Eat-Da-Burger</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    <title>Eat-Da-Burger</title>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="/assets/js/burgers.js"></script>
+</head>
+
+<h2>Eat-Da-Burger</h2>
+
+<ul>
+    {{#each burgers}}
+        {{#unless devoured}}
+        {{> burgers devoured=true}}
+        {{/unless}}
+    {{/each}}
+</ul>
+
+<ul>
+    {{#each burgers}}
+        {{#if devoured}}
+        {{> burgers devoured=false}}
+        {{/if}}
+    {{/each}}
+    <li>
+        <button class="change-devoured" data-id="{{id}}" data-newburger="{{devoured}}">
+            {{#if devoured}}Devoured{{else}}Ready{{/if}}
+        </button>
+    </li>
+</ul>
+
+<h2>Eat-Da-Burger</h2>
+<form class="create-form">
+    <div class="form-group">
+        <label for="name">Burger Name:</label>
+        <input type="text" id="burgerName" name="name"> 
+    </div>
+    <button type="submit">Submit</button>
+</form>
+
+</html>
+
+
